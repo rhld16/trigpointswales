@@ -56,7 +56,7 @@ if (code) {
         function(result) {
             localStorage.setItem("access", result.access_token);
             localStorage.setItem("token", result.refresh_token);
-            location.replace("https://whip-curvy-beet.glitch.me");
+            location.replace("https://rhld16.me/trigpointswales");
         }
     );
 }
@@ -120,5 +120,5 @@ if (localStorage.getItem("access")) {
 function logout() {
     localStorage.removeItem("access");
     localStorage.removeItem("token");
-    location.replace("https://whip-curvy-beet.glitch.me");
+    location.replace("https://rhld16.me/trigpointswales");
 }
