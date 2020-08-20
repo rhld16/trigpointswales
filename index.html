@@ -57,8 +57,7 @@ fetch("https://cdn.glitch.com/dd49ab0c-c778-4839-967f-afbd577da72e%2FWales%20-%2
                     var lat = parseFloat(pArr[1]);
                     var lng = parseFloat(pArr[0]);
                     var marker = L.marker([lat, lng]);
-                    marker.bindPopup("
-				<h2>"+pname+"</h2>");
+                    marker.bindPopup("<h2>"+pname+"</h2>");
                     layerG.addLayer(marker);
                 });
     })	
