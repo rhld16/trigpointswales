@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Simple Map</title>
+		<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+		<script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+		<script src="https://unpkg.com/jquery@3.5.1/dist/jquery.js"></script>
+		<link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+			<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+			<link rel="stylesheet" href="./style.css" />
+			<script src="./app.js"></script>
+		</head>
+		<body>
+			<div id="map"></div>
+			<div id="sidebar">
+				<div id="login">
+					<a href="https://www.strava.com/oauth/authorize?client_id=45484&redirect_uri=https://whip-curvy-beet.glitch.me&response_type=code&scope=activity:read_all" id="loginlink">
+						<img id="strava" src="https://cdn.glitch.com/dd49ab0c-c778-4839-967f-afbd577da72e%2Fbtn_strava_connectwith_orange.png?v=1597674107368"/>
+					</a>
+					<div id="profile">
+						<img id="icon" src="https://" />
+						<button class="btn danger" onclick="logout()">
+							<i class="fas fa-sign-out-alt"></i>
+							<span>log out</span>
+						</button>
+						<div class="user-info">
+							<h1 id="stravaname"></h1>
+						</div>
+					</div>
+				</div>
+				<div id="insideside">
+					<h3 id="stats"></h3>
+					<ul id="list"></ul>
+				</div>
+			</div>
+			<script type="text/javascript">
+  var mymap = L.map("map", { preferCanvas: true });
+        mymap.setView([52.43131, -3.74243], 8);
+          var OpenStreetMap_Mapnik = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {attribution:'&copy; rhld16'}).addTo(mymap);
+          var satellite = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}");
+          var baseMaps = {
+            "Standard": OpenStreetMap_Mapnik,
+            "Satellite": satellite
+          };
+      var overlays =  {};
+      L.control.layers(baseMaps,overlays, {position: 'bottomleft'}).addTo(mymap);
+    layerG.addTo(mymap)
+    var kmllayers;
+fetch("https://cdn.glitch.com/dd49ab0c-c778-4839-967f-afbd577da72e%2FWales%20-%20Wales.kml?v=1597669398781")
+  .then(response => response.text())
+  .then(function(data) {
+    $(data).find("Placemark").each(function(index, value) {
+                    var pcoord = $(this).find("coordinates").text();
+                    var pname = $(this).find("name").text();
+                    var pArr = pcoord.split(',');
+                    var lat = parseFloat(pArr[1]);
+                    var lng = parseFloat(pArr[0]);
+                    var marker = L.marker([lat, lng]);
+                    marker.bindPopup("
+				<h2>"+pname+"</h2>");
+                    layerG.addLayer(marker);
+                });
+    })	
+			</script>
+		</body>
+	</html>
