@@ -1,6 +1,6 @@
 var activs = [];
 var trigdoneS = 0;
-var worker = new Worker('checker.js');
+var worker = new Worker('assets/checker.js');
 var greenIcon = new L.Icon({
     iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
     shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
