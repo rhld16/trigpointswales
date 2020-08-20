@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Simple Map</title>
+		<title>Trigpoints Wales</title>
 		<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
 		<script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
 		<script src="https://unpkg.com/jquery@3.5.1/dist/jquery.js"></script>
@@ -37,7 +37,7 @@
 			<script type="text/javascript">
   var mymap = L.map("map", { preferCanvas: true });
         mymap.setView([52.43131, -3.74243], 8);
-          var OpenStreetMap_Mapnik = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {attribution:'&copy; rhld16'}).addTo(mymap);
+          var OpenStreetMap_Mapnik = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {attribution:'&copy; rhld16', attributionControl: false}).addTo(mymap);
           var satellite = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}");
           var baseMaps = {
             "Standard": OpenStreetMap_Mapnik,
